@@ -1,0 +1,150 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="20dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:text="8:40a.m. \n       -\n9:35 a.m."
+                android:textSize="16sp"
+                android:paddingRight="20dp"/>
+
+            <TextView
+                android:id="@+id/first"
+                android:text="Subject"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:text="9:35a.m. \n       -\n10:30 a.m."
+                android:textSize="16sp"
+                android:paddingRight="20dp"/>
+
+            <TextView
+                android:id="@+id/second"
+                android:text="Subject"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:text="10:30a.m. \n       -\n11:25 a.m."
+                android:textSize="16sp"
+                android:paddingRight="20dp"/>
+
+            <TextView
+                android:id="@+id/third"
+                android:text="Subject"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:text="11:25a.m. \n       -\n12:20 a.m."
+                android:textSize="16sp"
+                android:paddingRight="20dp"/>
+
+            <TextView
+                android:id="@+id/fourth"
+                android:text="Subject"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:text="12:20a.m. \n       -\n12:50 p.m."
+                android:textSize="16sp"
+                android:paddingRight="20dp"/>
+
+            <TextView
+                android:text="BREAK"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:text="12:50p.m. \n       -\n1:45 p.m."
+                android:textSize="16sp"
+                android:paddingRight="20dp"/>
+
+            <TextView
+                android:id="@+id/fifth"
+                android:text="Subject"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:text="1:45p.m. \n       -\n2:40 p.m."
+                android:textSize="16sp"
+                android:paddingRight="20dp"/>
+
+            <TextView
+                android:id="@+id/sixth"
+                android:text="Subject"
+                android:textSize="16sp" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+</RelativeLayout>
