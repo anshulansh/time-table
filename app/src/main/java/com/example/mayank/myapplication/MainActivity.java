@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 
+import com.astuetz.PagerSlidingTabStrip;
 
 
 public class MainActivity extends FragmentActivity {
@@ -29,6 +30,10 @@ public class MainActivity extends FragmentActivity {
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
 
         viewPager.setAdapter(pagerAdapter);
+        //viewPager.setAdapter(new TestAdapter(getSupportFragmentManager()));
+        PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+        tabs.setViewPager(viewPager);
+
 
 
         Button button = (Button)findViewById(R.id.button_next);
@@ -57,22 +62,26 @@ public class MainActivity extends FragmentActivity {
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
-
+        @Override
+        public  CharSequence getPageTitle(int position) {
+            final String[]TITLES={"MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"};
+            return TITLES[position];
+        }
         public Fragment getItem(int position) {
             switch (position)
             {
                 case 0 :
-                    return new BlankFragment("Monday");
+                    return new BlankFragment("MONDAY");
                 case 1:
-                    return new BlankFragment("Tuesday");
+                    return new BlankFragment("TUESDAY");
                 case 2:
-                    return new BlankFragment("Wednesday");
+                    return new BlankFragment("WEDNESDAY");
                 case 3:
-                    return new BlankFragment("Thursday");
+                    return new BlankFragment("THURSDAY");
                 case 4:
-                    return new BlankFragment("Friday");
+                    return new BlankFragment("FRIDAY");
                 case 5:
-                    return new BlankFragment("Saturday");
+                    return new BlankFragment("SATURDAY");
                 default:
                     return null;
             }
