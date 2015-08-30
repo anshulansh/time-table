@@ -20,6 +20,8 @@ public class MainActivity extends FragmentActivity {
     private ViewPager viewPager;
 
     private PagerAdapter pagerAdapter;
+    private Button last;
+    private Button first;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,24 +38,55 @@ public class MainActivity extends FragmentActivity {
 
 
 
-        Button button = (Button)findViewById(R.id.button_next);
-        button.setOnClickListener(new View.OnClickListener() {
+        last = (Button)findViewById(R.id.button_last);
+        last.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                viewPager.setCurrentItem(5);
             }
         });
 
 
-        Button button_back = (Button)findViewById(R.id.button_previous);
-        button_back.setOnClickListener(new View.OnClickListener() {
+        first = (Button)findViewById(R.id.button_first);
+        first.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+                viewPager.setCurrentItem(0);
             }
         });
 
-        }
+        tabs.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            // This method will be invoked when a new page becomes selected.
+            @Override
+            public void onPageSelected(int position) {
+                if(position==0)
+                    first.setVisibility(View.GONE);
+                else
+                    first.setVisibility(View.VISIBLE);
+
+                if(position==5)
+                    last.setVisibility(View.GONE);
+                else
+                    last.setVisibility(View.VISIBLE);
+
+            }
+
+            // This method will be invoked when the current page is scrolled
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                // Code goes here
+            }
+
+            // Called when the scroll state changes:
+            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                // Code goes here
+            }
+        });
+
+    }
 
 
 
@@ -62,26 +95,28 @@ public class MainActivity extends FragmentActivity {
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
+
         @Override
         public  CharSequence getPageTitle(int position) {
             final String[]TITLES={"MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"};
             return TITLES[position];
         }
+
         public Fragment getItem(int position) {
             switch (position)
             {
                 case 0 :
-                    return new BlankFragment("MONDAY");
+                    return new UniversalFragment("MONDAY");
                 case 1:
-                    return new BlankFragment("TUESDAY");
+                    return new UniversalFragment("TUESDAY");
                 case 2:
-                    return new BlankFragment("WEDNESDAY");
+                    return new UniversalFragment("WEDNESDAY");
                 case 3:
-                    return new BlankFragment("THURSDAY");
+                    return new UniversalFragment("THURSDAY");
                 case 4:
-                    return new BlankFragment("FRIDAY");
+                    return new UniversalFragment("FRIDAY");
                 case 5:
-                    return new BlankFragment("SATURDAY");
+                    return new UniversalFragment("SATURDAY");
                 default:
                     return null;
             }
@@ -91,5 +126,6 @@ public class MainActivity extends FragmentActivity {
             return num_pages;
         }
     }
+
 
 }

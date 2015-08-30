@@ -12,12 +12,12 @@ import android.widget.TextView;
 *
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link BlankFragment.OnFragmentInteractionListener} interface
+ * {@link UniversalFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link BlankFragment#newInstance} factory method to
+ * Use the {@link UniversalFragment#newInstance} factory method to
  * create an instance of this fragment.
 */
-public class BlankFragment extends Fragment {
+public class UniversalFragment extends Fragment {
 
     private String day;
 
@@ -31,12 +31,12 @@ public class BlankFragment extends Fragment {
 
 
 
-    public BlankFragment() {
+    public UniversalFragment() {
         // Required empty public constructor
         day="NULL";
     }
 
-    public BlankFragment(String day) {
+    public UniversalFragment(String day) {
         this.day = day;
     }
 
@@ -62,7 +62,7 @@ public class BlankFragment extends Fragment {
 
     private void fill(String title){
 
-        if(title.equals("Monday")){
+        if(title.equals("MONDAY")){
             first.setText(TimeTable.Monday[0]);
             second.setText(TimeTable.Monday[1]);
             third.setText(TimeTable.Monday[2]);
@@ -71,7 +71,7 @@ public class BlankFragment extends Fragment {
             sixth.setText(TimeTable.Monday[5]);
         }
 
-        if(title.equals("Tuesday")){
+        if(title.equals("TUESDAY")){
             first.setText(TimeTable.Tuesday[0]);
             second.setText(TimeTable.Tuesday[1]);
             third.setText(TimeTable.Tuesday[2]);
@@ -80,7 +80,7 @@ public class BlankFragment extends Fragment {
             sixth.setText(TimeTable.Tuesday[5]);
         }
 
-        if(title.equals("Wednesday")){
+        if(title.equals("WEDNESDAY")){
             first.setText(TimeTable.Wednesday[0]);
             second.setText(TimeTable.Wednesday[1]);
             third.setText(TimeTable.Wednesday[2]);
@@ -89,7 +89,7 @@ public class BlankFragment extends Fragment {
             sixth.setText(TimeTable.Wednesday[5]);
         }
 
-        if(title.equals("Thursday")){
+        if(title.equals("THURSDAY")){
             first.setText(TimeTable.Thursday[0]);
             second.setText(TimeTable.Thursday[1]);
             third.setText(TimeTable.Thursday[2]);
@@ -98,7 +98,7 @@ public class BlankFragment extends Fragment {
             sixth.setText(TimeTable.Thursday[5]);
         }
 
-        if(title.equals("Friday")){
+        if(title.equals("FRIDAY")){
             first.setText(TimeTable.Friday[0]);
             second.setText(TimeTable.Friday[1]);
             third.setText(TimeTable.Friday[2]);
@@ -107,7 +107,7 @@ public class BlankFragment extends Fragment {
             sixth.setText(TimeTable.Friday[5]);
         }
 
-        if(title.equals("Saturday")){
+        if(title.equals("SATURDAY")){
             first.setText(TimeTable.Saturday[0]);
             second.setText(TimeTable.Saturday[1]);
             third.setText(TimeTable.Saturday[2]);

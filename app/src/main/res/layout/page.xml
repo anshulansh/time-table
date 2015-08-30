@@ -3,13 +3,20 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/bright_foreground_inverse_material_light"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="fill_parent"
         android:layout_height="48dip"
+        android:background="@color/indigo"
+        android:textColor="#ffffff"
+        app:pstsDividerColor="#ffffff"
+        app:pstsIndicatorColor="#ffffff"
+        app:pstsIndicatorHeight="5dp"
         />
 
 
@@ -18,29 +25,39 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/button_previous"
+        android:layout_below="@id/tabs"
+        android:layout_above="@+id/buttons"
+        android:background="@color/bright_foreground_inverse_material_light"
+        android:padding="@dimen/abc_action_bar_content_inset_material"
         android:id="@+id/pager"/>
 
-    <Button
-        android:id="@+id/button_previous"
+    <RelativeLayout
+        android:id="@+id/buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#000000"
-        android:textColor="#ffffff"
-        android:text="@string/previous"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-    <Button
-        android:id="@+id/button_next"
-        android:background="#000000"
-        android:textColor="#ffffff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/next"
-        android:layout_below="@+id/pager"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/button_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/indigo"
+            android:textColor="#ffffff"
+            android:text="@string/first"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:visibility="gone"/>
+        <Button
+            android:id="@+id/button_last"
+            android:background="@color/indigo"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/last"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
