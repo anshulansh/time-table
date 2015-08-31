@@ -28,6 +28,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:22.2.0'
     compile 'com.android.support:design:22.2.0'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    //compile 'com.jpardogo.materialtabstrip:library:1.1.0'
 }
     /*androidTestCompile 'com.android.support.test:rules:0.3'*/
     /*androidTestCompile 'com.android.support.test:testing-support-lib:0.1'*/

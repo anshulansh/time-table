@@ -16,7 +16,8 @@
         android:textColor="#ffffff"
         app:pstsDividerColor="#ffffff"
         app:pstsIndicatorColor="#ffffff"
-        app:pstsIndicatorHeight="5dp"
+        app:pstsIndicatorHeight="2dp"
+        android:elevation="5dp"
         />
 
 
@@ -35,7 +36,8 @@
         android:id="@+id/buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:elevation="5dp">
 
         <Button
             android:id="@+id/button_first"

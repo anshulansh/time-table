@@ -1,5 +1,6 @@
 package com.example.mayank.myapplication;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -7,13 +8,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
 import com.astuetz.PagerSlidingTabStrip;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final int num_pages = 6;
 
@@ -22,11 +26,20 @@ public class MainActivity extends FragmentActivity {
     private PagerAdapter pagerAdapter;
     private Button last;
     private Button first;
+    private ActionBar actionBar;
+    /*private float x1;
+    private float x2;
+    private float MIN_DISTANCE = 10;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page);
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.indigo)));
+            actionBar.setElevation(0);
+        }
 
         viewPager = (ViewPager)findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
@@ -126,6 +139,31 @@ public class MainActivity extends FragmentActivity {
             return num_pages;
         }
     }
-
+   /* @Override
+    public boolean onTouchEvent(MotionEvent event)
+    {
+        switch(event.getAction())
+        {
+            case MotionEvent.ACTION_DOWN:
+                x1 = event.getX();
+                if(!actionBar.isShowing()){
+                    actionBar.show();
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+                float deltaX = x2 - x1;
+                if (Math.abs(deltaX) > MIN_DISTANCE)
+                {
+                    actionBar.hide();
+                }
+                else
+                {
+                    // consider as something else - a screen tap for example
+                }
+                break;
+        }
+        return super.onTouchEvent(event);
+    }*/
 
 }
