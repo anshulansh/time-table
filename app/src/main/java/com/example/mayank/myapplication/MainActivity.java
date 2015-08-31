@@ -1,5 +1,6 @@
 package com.example.mayank.myapplication;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -7,24 +8,38 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
 import com.astuetz.PagerSlidingTabStrip;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static final int num_pages = 6;
 
     private ViewPager viewPager;
 
     private PagerAdapter pagerAdapter;
+    private Button last;
+    private Button first;
+    private ActionBar actionBar;
+    /*private float x1;
+    private float x2;
+    private float MIN_DISTANCE = 10;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page);
+        actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.indigo)));
+            actionBar.setElevation(0);
+        }
 
         viewPager = (ViewPager)findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
@@ -36,25 +51,56 @@ public class MainActivity extends FragmentActivity {
 
 
 
-        Button button = (Button)findViewById(R.id.button_next);
-        button.setOnClickListener(new View.OnClickListener() {
+        last = (Button)findViewById(R.id.button_last);
+        last.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem() + 1);
+                viewPager.setCurrentItem(5);
             }
         });
 
 
-        Button button_back = (Button)findViewById(R.id.button_previous);
-        button_back.setOnClickListener(new View.OnClickListener() {
+        first = (Button)findViewById(R.id.button_first);
+        first.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewPager.setCurrentItem(viewPager.getCurrentItem() - 1);
+                viewPager.setCurrentItem(0);
             }
         });
 
 
-        }
+        tabs.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+            // This method will be invoked when a new page becomes selected.
+            @Override
+            public void onPageSelected(int position) {
+                if(position==0)
+                    first.setVisibility(View.GONE);
+                else
+                    first.setVisibility(View.VISIBLE);
+
+                if(position==5)
+                    last.setVisibility(View.GONE);
+                else
+                    last.setVisibility(View.VISIBLE);
+
+            }
+
+            // This method will be invoked when the current page is scrolled
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                // Code goes here
+            }
+
+            // Called when the scroll state changes:
+            // SCROLL_STATE_IDLE, SCROLL_STATE_DRAGGING, SCROLL_STATE_SETTLING
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                // Code goes here
+            }
+        });
+
+    }
 
 
 
@@ -65,27 +111,29 @@ public class MainActivity extends FragmentActivity {
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
         }
+
         @Override
         public  CharSequence getPageTitle(int position) {
             final String[]TITLES={"MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"};
             return TITLES[position];
 
         }
+
         public Fragment getItem(int position) {
             switch (position)
             {
                 case 0 :
-                    return new BlankFragment("MONDAY");
+                    return new UniversalFragment("MONDAY");
                 case 1:
-                    return new BlankFragment("TUESDAY");
+                    return new UniversalFragment("TUESDAY");
                 case 2:
-                    return new BlankFragment("WEDNESDAY");
+                    return new UniversalFragment("WEDNESDAY");
                 case 3:
-                    return new BlankFragment("THURSDAY");
+                    return new UniversalFragment("THURSDAY");
                 case 4:
-                    return new BlankFragment("FRIDAY");
+                    return new UniversalFragment("FRIDAY");
                 case 5:
-                    return new BlankFragment("SATURDAY");
+                    return new UniversalFragment("SATURDAY");
                 default:
                     return null;
             }
@@ -95,5 +143,31 @@ public class MainActivity extends FragmentActivity {
             return num_pages;
         }
     }
+   /* @Override
+    public boolean onTouchEvent(MotionEvent event)
+    {
+        switch(event.getAction())
+        {
+            case MotionEvent.ACTION_DOWN:
+                x1 = event.getX();
+                if(!actionBar.isShowing()){
+                    actionBar.show();
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                x2 = event.getX();
+                float deltaX = x2 - x1;
+                if (Math.abs(deltaX) > MIN_DISTANCE)
+                {
+                    actionBar.hide();
+                }
+                else
+                {
+                    // consider as something else - a screen tap for example
+                }
+                break;
+        }
+        return super.onTouchEvent(event);
+    }*/
 
 }
