@@ -3,14 +3,23 @@
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <com.astuetz.PagerSlidingTabStrip
         android:id="@+id/tabs"
-        android:layout_width="fill_parent"
-        android:layout_height="48dip"
-        />
+        app:pstsShouldExpand="true"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:textSize="14sp"
+        android:textColor="#607d8b"
+        app:pstsDividerColor="#a7ffeb"
+        app:pstsIndicatorColor="#2196f3"
+        app:pstsUnderlineColor="#ffeb3b"
+        app:pstsTabPaddingLeftRight="14dp"
+        android:background="#a7ffeb">
+    </com.astuetz.PagerSlidingTabStrip>
 
 
 

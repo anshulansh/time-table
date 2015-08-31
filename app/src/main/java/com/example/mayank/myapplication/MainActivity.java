@@ -53,7 +53,10 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
+
         }
+
+
 
 
 
@@ -66,6 +69,7 @@ public class MainActivity extends FragmentActivity {
         public  CharSequence getPageTitle(int position) {
             final String[]TITLES={"MONDAY","TUESDAY","WEDNESDAY","THURSDAY","FRIDAY","SATURDAY"};
             return TITLES[position];
+
         }
         public Fragment getItem(int position) {
             switch (position)
