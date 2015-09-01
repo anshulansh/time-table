@@ -27,12 +27,11 @@
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/tabs"
-        android:layout_above="@+id/buttons"
         android:background="@color/bright_foreground_inverse_material_light"
         android:padding="@dimen/abc_action_bar_content_inset_material"
         android:id="@+id/pager"/>
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:id="@+id/buttons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,7 +58,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
 
-    </RelativeLayout>
+    </RelativeLayout>-->
 
 
 </RelativeLayout>
