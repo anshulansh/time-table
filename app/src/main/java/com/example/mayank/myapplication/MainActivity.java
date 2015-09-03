@@ -18,8 +18,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.astuetz.PagerSlidingTabStrip;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -47,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.indigo)));
             actionBar.setElevation(0);
+
         }
          nm= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notify=new Notification(R.drawable.notification_template_icon_bg,"Meeting",System.currentTimeMillis());
@@ -64,11 +69,16 @@ public class MainActivity extends AppCompatActivity {
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         tabs.setViewPager(viewPager);
 
+        setCurrentPage();
 
+<<<<<<< HEAD
 
 
 
         last = (Button)findViewById(R.id.button_last);
+=======
+        /*last = (Button)findViewById(R.id.button_last);
+>>>>>>> 71cb813afda3c349d202d71567f10fb43adb1250
         last.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 viewPager.setCurrentItem(0);
             }
-        });
+        });*/
 
 
         tabs.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -91,7 +101,8 @@ public class MainActivity extends AppCompatActivity {
             // This method will be invoked when a new page becomes selected.
             @Override
             public void onPageSelected(int position) {
-                if(position==0)
+
+                /*if(position==0)
                     first.setVisibility(View.GONE);
                 else
                     first.setVisibility(View.VISIBLE);
@@ -99,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 if(position==5)
                     last.setVisibility(View.GONE);
                 else
-                    last.setVisibility(View.VISIBLE);
+                    last.setVisibility(View.VISIBLE);*/
 
             }
 
@@ -125,7 +136,26 @@ public class MainActivity extends AppCompatActivity {
         nm.notify(3,notify);
     }
 
-
+    private void setCurrentPage() {
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
+        Date d = new Date();
+        String dayOfTheWeek = sdf.format(d);
+        switch (dayOfTheWeek){
+            case "Monday"    : viewPager.setCurrentItem(0);
+                            break;
+            case "Tuesday"   : viewPager.setCurrentItem(1);
+                            break;
+            case "Wednesday" : viewPager.setCurrentItem(2);
+                            break;
+            case "Thursday"  : viewPager.setCurrentItem(3);
+                            break;
+            case "Friday"    : viewPager.setCurrentItem(4);
+                            break;
+            case "Saturday"  : viewPager.setCurrentItem(5);
+                            break;
+            default          : viewPager.setCurrentItem(0);
+        }
+    }
 
 
 
