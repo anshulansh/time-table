@@ -71,14 +71,14 @@ public class MainActivity extends AppCompatActivity {
 
         setCurrentPage();
 
-<<<<<<< HEAD
 
 
+
+
+       /* last = (Button)findViewById(R.id.button_last);
 
         last = (Button)findViewById(R.id.button_last);
-=======
-        /*last = (Button)findViewById(R.id.button_last);
->>>>>>> 71cb813afda3c349d202d71567f10fb43adb1250
+
         last.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
