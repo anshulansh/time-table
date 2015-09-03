@@ -1,7 +1,12 @@
 package com.example.mayank.myapplication;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -18,6 +23,8 @@ import com.astuetz.PagerSlidingTabStrip;
 
 
 public class MainActivity extends AppCompatActivity {
+    NotificationManager nm;
+    Notification notify;
 
     private static final int num_pages = 6;
 
@@ -32,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private float MIN_DISTANCE = 10;*/
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page);
         actionBar = getSupportActionBar();
@@ -40,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.indigo)));
             actionBar.setElevation(0);
         }
+         nm= (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        notify=new Notification(R.drawable.notification_template_icon_bg,"Meeting",System.currentTimeMillis());
+        notify.defaults |=Notification.DEFAULT_SOUND;
+        notify.defaults |=Notification.FLAG_AUTO_CANCEL;
+        Intent i=new Intent(getApplicationContext(),MainActivity.class);
+        PendingIntent pi=PendingIntent.getActivity(getApplicationContext(),2,i,0);
+        notify.setLatestEventInfo(getApplicationContext(),"Description","Meeting at 4pm",pi);
 
         viewPager = (ViewPager)findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
@@ -48,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         //viewPager.setAdapter(new TestAdapter(getSupportFragmentManager()));
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         tabs.setViewPager(viewPager);
+
+
 
 
 
@@ -100,8 +117,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
 
+    }
+    public void showme(View V)
+
+    {
+        nm.notify(3,notify);
+    }
 
 
 
@@ -123,7 +145,9 @@ public class MainActivity extends AppCompatActivity {
             switch (position)
             {
                 case 0 :
+
                     return new UniversalFragment("MONDAY");
+
                 case 1:
                     return new UniversalFragment("TUESDAY");
                 case 2:
