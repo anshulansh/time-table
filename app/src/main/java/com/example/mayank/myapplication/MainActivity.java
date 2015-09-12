@@ -57,9 +57,9 @@ public class MainActivity extends AppCompatActivity {
         notify=new Notification(R.drawable.notification_template_icon_bg,"Meeting",System.currentTimeMillis());
         notify.defaults |=Notification.DEFAULT_SOUND;
         notify.defaults |=Notification.FLAG_AUTO_CANCEL;
-        Intent i=new Intent(getApplicationContext(),MainActivity.class);
+        Intent i=new Intent(getApplicationContext(),secondActivity.class);
         PendingIntent pi=PendingIntent.getActivity(getApplicationContext(),2,i,0);
-        notify.setLatestEventInfo(getApplicationContext(),"Description","Meeting at 4pm",pi);
+        notify.setLatestEventInfo(getApplicationContext(),"Description","checking notification",pi);
 
         viewPager = (ViewPager)findViewById(R.id.pager);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
