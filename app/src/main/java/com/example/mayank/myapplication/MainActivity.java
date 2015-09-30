@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });*/
 
-
         tabs.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
             // This method will be invoked when a new page becomes selected.
